@@ -80,7 +80,7 @@ public class UrlsServiceTests
     {
         // Act & Assert
         await Assert.ThrowsAsync<ArgumentException>(
-            () => _service.GetByIdAsync(Guid.Empty)
+            () => _service.GetUrlByIdAsync(Guid.Empty)
         );
     }
 
@@ -94,7 +94,7 @@ public class UrlsServiceTests
             .ReturnsAsync((UrlItem)null);
 
         // Act
-        var resultado = await _service.GetByIdAsync(id);
+        var resultado = await _service.GetUrlByIdAsync(id);
 
         // Assert
         Assert.Null(resultado);
@@ -117,7 +117,7 @@ public class UrlsServiceTests
             .ReturnsAsync(urlEsperada);
 
         // Act
-        var resultado = await _service.GetByIdAsync(id);
+        var resultado = await _service.GetUrlByIdAsync(id);
 
         // Assert
         Assert.NotNull(resultado);
